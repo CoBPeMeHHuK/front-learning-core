@@ -1,4 +1,7 @@
 import _Vue, { PluginFunction } from 'vue';
+import VueCompositionAPI from '@vue/composition-api'
+
+_Vue.use(VueCompositionAPI)
 
 
 
