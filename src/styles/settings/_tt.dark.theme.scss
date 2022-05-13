@@ -1,0 +1,19 @@
+/*
+ * TODO: актуализировать с новыми именами цветов из палитры
+ * TODO: актуализировать со стандартным `node_modules/vuetify/src/styles/settings/_dark.scss`
+ * TODO: добавил tt-nav-drawer из ligth, т.к. функция map-deep-get валилась с ошибкой (поменять значения переменных)
+ */
+
+/* IMPORTANT: называем переменную именно material-dark, она используется в некоторых миксинах */
+$material-dark: map-deep-merge(
+  $material-dark,
+  (
+    'tt-module-menu': (
+      'background': map-get($tt-white, 'base'),
+      'border-color': map-get($tt-light-mono-8, 'base'),
+      'item-hover': map-get($tt-light-mono-4, 'base'),
+      'tooltip-background': rgba(map-get($tt-light-mono-100, 'base'), .9),
+      'tooltip-color': map-get($tt-white, 'base')
+    )
+  )
+);

@@ -1,0 +1,21 @@
+@import './elements';
+
+.tt- {
+  @import 'classes/flex';
+}
+
+main.tt-main__xl_menu > .v-main__wrap {
+  padding: 0 66px 0 86px;
+}
+
+main.tt-main__lg_menu > .v-main__wrap {
+  padding: 0 24px 0 68px;
+}
+
+main.tt-main__md_menu > .v-main__wrap {
+  padding: 0 60px 0 28px;
+}
+
+main.tt-main__sm_menu > .v-main__wrap {
+  padding: 0 0 0 28px;
+}

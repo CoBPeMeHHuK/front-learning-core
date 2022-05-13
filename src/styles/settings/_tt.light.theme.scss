@@ -1,0 +1,152 @@
+/*
+ * TODO: актуализировать с новыми именами цветов из палитры
+ * TODO: актуализировать со стандартным `node_modules/vuetify/src/styles/settings/_light.scss`
+ */
+
+
+/* IMPORTANT: называем переменную именно material-light, она используется в некоторых миксинах */
+$material-light: map-deep-merge(
+  $material-light,
+  (
+    'status-bar': (
+      'regular': map-get($tt-black, 'lighten-4'),
+      /* TODO: change to white / black lighten ? */
+      'lights-out': rgba(map-get($tt-white, 'base'), 0.7)
+    ),
+    'app-bar': map-get($tt-white, 'base'),
+    'background': map-get($tt-white, 'base'),
+    'bottom-navigation': map-get($tt-white, 'base'),
+    'surface': map-get($tt-white, 'base'),
+    'calendar': (
+      'background-color': map-get($tt-white, 'base'),
+      'outside-background-color': map-get($tt-white, 'darken-1'),
+      'line-color': map-get($tt-black, 'lighten-5'),
+      'interval-color': map-get($tt-black, 'lighten-5'),
+      'interval-line-color': map-get($tt-black, 'lighten-5'),
+      'text-color': map-get($tt-black, 'base'),
+      'past-color': map-get($tt-black, 'lighten-1')
+    ),
+    'cards': map-get($tt-white, 'base'),
+    'chips': map-get($tt-black, 'lighten-5'),
+    'dividers': map-get($tt-black, 'lighten-5'),
+    'text': (
+      'theme': map-get($tt-white, 'base'),
+      'primary': map-get($tt-light-mono-100, 'base'),
+      /* TODO: на этот цвет завязано много компонентов - и там нужен "темный" черный, а не серый" */
+      'secondary': map-get($tt-light-mono-100, 'base'),
+      'disabled': rgba(map-get($tt-black, 'base'), 0.38),
+      'link': map-get($tt-black, 'base'),
+      /* TODO: change lighten-1 ? */
+      'link-hover': map-get($tt-black, 'lighten-1')
+    ),
+    'icons': (
+      'active': map-get($tt-black, 'base'),
+      'inactive': map-get($tt-black, 'lighten-2'),
+    ),
+    'inputs': (
+      'background': map-deep-get($tt-light-mono-4, 'base'),
+      'box': rgba(map-get($tt-black, 'base'), 0.04),
+      'border':map-deep-get($tt-light-mono-8, 'base'),
+      'border-focused':map-deep-get($tt-light-mono-16, 'base'),
+      'solo-inverted': rgba(map-get($tt-black, 'base'), 0.06),
+      'solo-inverted-focused': map-get($tt-black, 'lighten-5'),
+      'solo-inverted-focused-label': rgba(map-get($tt-white, 'base'), .7),
+      'solo-inverted-focused-placeholder': rgba(map-get($tt-white, 'base'), 0.5),
+      'solo-inverted-focused-text': map-get($tt-white, 'base')
+    ),
+    'buttons': (
+      'default': map-get($tt-light-mono-100, 'base'),
+      'disabled': map-get($tt-light-mono-24, 'base'),
+      'focused': map-get($tt-light-mono-8, 'base'),
+      'focused-alt': rgba(map-get($tt-white, 'base'), 0.6),
+      'pressed': rgba(map-get($tt-black, 'base'), 0.4)
+    ),
+    'expansion-panels': (
+      /* TODO: change to black lighten-5? */
+      'focus': map-get($tt-white, 'base')
+    ),
+    'tt-module-menu': (
+      'background': map-get($tt-white, 'base'),
+      'border-color': map-get($tt-light-mono-8, 'base'),
+      'item-hover': map-get($tt-light-mono-4, 'base'),
+      'tooltip-background': rgba(map-get($tt-light-mono-100, 'base'), .9),
+      'tooltip-color': map-get($tt-white, 'base')
+    ),
+    'navigation-drawer': map-get($tt-white, 'base'),
+    'selection-controls': (
+      'disabled': rgba(map-get($tt-black, 'base'), 0.26),
+      'thumb': (
+        'inactive': map-get($tt-white, 'base'),
+        /* TODO: change? */
+        'disabled': map-get($tt-black, 'lighten-2')
+      ),
+      'track': (
+        'inactive': rgba(map-get($tt-black, 'base'), 0.38),
+        'disabled': rgba(map-get($tt-black, 'base'), 0.12)
+      )
+    ),
+    'slider': (
+      'active': rgba(map-get($tt-black, 'base'), 0.38),
+      'inactive': rgba(map-get($tt-black, 'base'), 0.26),
+      'disabled': rgba(map-get($tt-black, 'base'), 0.26),
+      'discrete': map-get($tt-black, 'base')
+    ),
+    /* TODO: change? */
+    'skeleton': linear-gradient(90deg, transparent, rgba(255, 255, 255, .3), transparent),
+    'states': (
+      'hover': 0.04,
+      /* TODO: change?
+       * why here only alpha ? :"(
+       * can't use HEX?
+       */
+      'focus': 0.12,
+      'selected': 0.08,
+      'activated': 0.12,
+      'pressed': 0.16,
+      'dragged': 0.08
+    ),
+    'tabs': rgba(map-get($tt-black, 'base'), 0.54),
+    'toggle-buttons': (
+      'color': map-get($tt-black, 'base')
+    ),
+    'text-fields': (
+      'filled': map-get($tt-black, 'lighten-6'),
+      'filled-hover': map-get($tt-black, 'lighten-6'),
+      'outlined': map-get($tt-black, 'lighten-4'),
+      'outlined-disabled': map-get($tt-black, 'lighten-4'),
+      'outlined-hover': map-get($tt-black, 'lighten-4'),
+    ),
+    'toolbar': map-get($tt-white, 'base'),
+    'input-bottom-line': rgba(map-get($tt-black, 'base'), 0.42),
+    'stepper': (
+      'active': rgba(map-get($tt-white, 'base'), 1),
+      'completed': rgba(map-get($tt-black, 'base'), 0.87),
+      'hover': rgba(map-get($tt-black, 'base'), 0.54)
+    ),
+    'table': (
+      'active': map-get($tt-black, 'lighten-6'),
+      'hover': map-get($tt-black, 'lighten-6'),
+      'group': map-get($tt-black, 'lighten-6')
+    ),
+    'picker': (
+      'body': map-get($tt-white, 'base'),
+      'clock': map-get($tt-black, 'lighten-5'),
+      'indeterminateTime': map-get($tt-black, 'lighten-5'),
+      'title': map-get($tt-black, 'lighten-5')
+    ),
+    'color-picker': (
+      'checkerboard': rgba(map-get($tt-white, 'base'), 0)
+    ),
+    'bg-color': map-get($tt-white, 'base'),
+    'fg-color': map-get($tt-black, 'base'),
+    // TODO: change to base?
+    'text-color': map-get($tt-black, 'lighten-5'),
+    // TODO: what is this?
+    'primary-text-percent': 0.87,
+    'secondary-text-percent': 0.6,
+    'disabledORhints-text-percent': 0.38,
+    'divider-percent': 0.12,
+    'active-icon-percent': 0.54,
+    'inactive-icon-percent': 0.38
+  )
+);

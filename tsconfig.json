@@ -1,0 +1,76 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "esnext",
+        "strict": true,
+        "declaration": true,
+        "declarationDir": "dist/types",
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "importHelpers": true,
+        "moduleResolution": "node",
+        "experimentalDecorators": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "sourceMap": true,
+        "baseUrl": ".",
+        "newLine": "lf",
+        "types": [
+            "node",
+            "vue"
+        ],
+        "paths": {
+            "@/entry.esm": [
+              "src/entry.esm"
+            ],
+            "@/lib-components/*": [
+              "src/lib-components/*"
+            ],
+            "@/*": [
+              "titify/src/*"
+            ],
+            "@uikit/components/*": [
+                "titify/src/ui/uikit/components/*"
+              ],
+            "@uikit/themes/*": [
+                "titify/src/ui/uikit/themes/*"
+              ],
+            "@uikit/locales/*": [
+                "titify/src/ui/uikit/locales/*"
+              ],
+    
+            "@uikit/*": [
+                "titify/src/ui/uikit/*"
+              ],
+            "*": [
+              "types/*"
+            ],
+    
+            "@widgets/*": [
+              "titify/src/ui/widgets/*"
+            ],
+            "@views/*": [
+              "titify/src/ui/views/*"
+            ],
+            "@testing/*": [
+              "tests/*"
+            ]
+          },
+        "plugins": [
+            {
+                "transform":"@zerollup/ts-transform-paths",
+                "exclude": ["*"]
+            }
+        ],
+        "lib": [
+            "esnext",
+            "dom",
+            "dom.iterable",
+            "scripthost"
+        ]
+    }, 
+      "exclude": [
+          "node_modules",
+          "dist"
+      ]
+}
