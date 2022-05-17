@@ -1,6 +1,6 @@
 {
   "name": "front-learning-core",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "",
   "main": "dist/front-learning-core.ssr.js",
   "browser": "dist/front-learning-core.esm.js",

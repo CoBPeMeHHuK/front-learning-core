@@ -1,8 +1,6 @@
-@import '../../../styles/settings/_tt.variables.scss';
-@import '../../../styles/settings/_typography.scss';
+
 
 .tt-avatar {
-  @include tt-text-title-2;
   width: 44px;
   height: 44px;
   overflow: hidden;
@@ -26,7 +24,6 @@
 }
 
 .tt-avatar.x-large {
-  @include tt-text-headline-2;
   width: 96px;
   height: 96px;
 
@@ -36,7 +33,6 @@
 }
 
 .tt-avatar.large {
-  @include tt-text-title-1;
   width: 72px;
   height: 72px;
 
@@ -46,7 +42,6 @@
 }
 
 .tt-avatar.small {
-  @include tt-text-body-2;
   font-weight: 500;
   width: 36px;
   height: 36px;
@@ -57,7 +52,6 @@
 }
 
 .tt-avatar.x-small {
-  @include tt-text-footnote;
   width: 24px;
   height: 24px;
 
