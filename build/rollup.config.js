@@ -12,6 +12,9 @@ import ttypescript from 'ttypescript';
 import typescript from 'rollup-plugin-typescript2';
 import minimist from 'minimist';
 
+import scss from 'rollup-plugin-scss'
+import postcss from 'postcss'
+
 // Get browserslist config and remove ie from es build targets
 const esbrowserslist = fs.readFileSync('./.browserslistrc')
   .toString()
@@ -40,8 +43,16 @@ const baseConfig = {
       }),
     ],
     replace: {
+      preventAssignment: true,
       'process.env.NODE_ENV': JSON.stringify('production'),
     },
+    scss:  scss({
+      processor: () => postcss([autoprefixer()]),
+      includePaths: [
+        path.join(__dirname, '../../node_modules/'),
+        'node_modules/'
+      ]
+    }),
     vue: {
       css: true,
       template: {
@@ -91,6 +102,7 @@ if (!argv.format || argv.format === 'es') {
       exports: 'named',
     },
     plugins: [
+      scss(baseConfig.plugins.scss),
       replace(baseConfig.plugins.replace),
       ...baseConfig.plugins.preVue,
       vue(baseConfig.plugins.vue),
@@ -132,6 +144,7 @@ if (!argv.format || argv.format === 'cjs') {
       globals,
     },
     plugins: [
+      scss(baseConfig.plugins.scss),
       replace(baseConfig.plugins.replace),
       ...baseConfig.plugins.preVue,
       vue({
@@ -161,6 +174,7 @@ if (!argv.format || argv.format === 'iife') {
       globals,
     },
     plugins: [
+      scss(baseConfig.plugins.scss),
       replace(baseConfig.plugins.replace),
       ...baseConfig.plugins.preVue,
       vue(baseConfig.plugins.vue),

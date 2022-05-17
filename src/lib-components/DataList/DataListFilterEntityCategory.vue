@@ -123,10 +123,12 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
+@import '../../styles/tt.colors.scss';
 .category-aside-picker {
   .category-item {
     .v-chip.selected {
-
+        border-color: $tt-light-mono-8!important;
+        background-color: $tt-light-mono-8 !important;
     }
   }
   .category-item + .category-item {

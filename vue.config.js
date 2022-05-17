@@ -6,7 +6,7 @@ const options = {
   css: {
     loaderOptions: {
       scss: {
-        additionalData: '@import "./src/styles/abstracts.scss";',
+        additionalData: '@import "./src/styles/variables.scss";',
       },
     },
   },

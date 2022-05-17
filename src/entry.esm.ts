@@ -3,8 +3,6 @@ import VueCompositionAPI from '@vue/composition-api'
 
 _Vue.use(VueCompositionAPI)
 
-
-
 // Import vue components
 import * as components from '@/lib-components/index';
 
