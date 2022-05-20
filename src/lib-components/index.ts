@@ -16,7 +16,8 @@ export { default as UserAvatar } from './ui/UserAvatar'
 
 /** TITIFY */
 
-export { default as TTAvatar } from '@uikit/components/TTAvatar/TTAvatar.vue'
+export { default as TTAvatar } from '../titify/src/ui/uikit/components/TTAvatar/TTAvatar.vue'
+
 
 
 
