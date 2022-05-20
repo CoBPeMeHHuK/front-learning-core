@@ -13,6 +13,6 @@ export default Vue.extend({
 
 <template>
   <div id="app">
-    <tt-uikit-sample />
+    <!--<tt-uikit-sample /> -->
   </div>
 </template>
