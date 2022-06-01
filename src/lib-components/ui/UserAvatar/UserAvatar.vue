@@ -14,7 +14,6 @@ import { getImageUrl } from '../../../helpers/gogha/getImageUrl';
 
 export default Vue.extend({
   name: 'UserAvatar',
-  components: { TTAvatar },
   props: {
     user: {
       type: Object,
