@@ -10,16 +10,12 @@
 </template>
 
 <script lang="ts">
-import TTAvatar from '@uikit/components/TTAvatar/TTAvatar.vue'
 import Vue, { PropType } from 'vue';
 import { UUID } from '../../../domains/common';
 import { getImageUrl, ImageSize } from '../../../helpers/gogha';
 
 export default Vue.extend({
   name: 'ProviderAvatar',
-  components: {
-    TTAvatar
-  },
   props: {
     id: {
       type: String as PropType<UUID>,
