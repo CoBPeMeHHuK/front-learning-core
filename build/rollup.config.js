@@ -49,8 +49,7 @@ const baseConfig = {
     scss:  scss({
       processor: () => postcss([autoprefixer()]),
       includePaths: [
-        path.join(__dirname, '../../node_modules/'),
-        'node_modules/'
+        path.join(__dirname, '../../src/')
       ]
     }),
     vue: {
@@ -61,13 +60,13 @@ const baseConfig = {
     },
     postVue: [
       resolve({
-        extensions: ['.js', '.jsx', '.ts', '.tsx', '.vue'],
+        extensions: ['.js', '.jsx', '.ts', '.tsx', '.vue', '.scss'],
       }),
       commonjs(),
     ],
     babel: {
       exclude: 'node_modules/**',
-      extensions: ['.js', '.jsx', '.ts', '.tsx', '.vue'],
+      extensions: ['.js', '.jsx', '.ts', '.tsx', '.vue', 'scss'],
       babelHelpers: 'bundled',
     },
   },
