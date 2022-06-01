@@ -11,8 +11,8 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue';
-import { ContentProviderAutocomplete }
-  from '../';
+import ContentProviderAutocomplete
+  from '../ui/ContentProviderAutocomplete/ProviderAutocomplete.vue';
 import {
   DataListFilterEntitySelectData,
   FilterSelectMode,
