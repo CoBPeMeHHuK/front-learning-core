@@ -37,7 +37,7 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue';
-import { UserAvatar } from '../';
+import UserAvatar from '../ui/UserAvatar';
 
 import {
   FilterAuthor, FilterAuthorMultipleWithSource, FilterSelectMode, FilterValue, IProvider,
