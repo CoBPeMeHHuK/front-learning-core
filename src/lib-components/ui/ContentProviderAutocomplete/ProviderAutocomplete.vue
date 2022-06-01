@@ -47,7 +47,7 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue';
-import { ProviderAvatar } from '../../';
+import ProviderAvatar from '../ProviderAvatar/index';
 
 export interface ProviderValue {
   title: string;

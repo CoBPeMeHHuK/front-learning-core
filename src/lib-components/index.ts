@@ -10,12 +10,12 @@ export { default as DataListFilterEntitySelect } from './DataList/DataListFilter
 export { default as DataListSorting } from './DataList/DataListSorting.vue'
 
 /** UI COMPONENTS */
-export { default as ContentProviderAutocomplete } from './ui/ContentProviderAutocomplete/ProviderAutocomplete.vue'
+export { default as ContentProviderAutocomplete } from './ui/ContentProviderAutocomplete'
 export { default as ProviderAvatar } from './ui/ProviderAvatar'
 
 /** TITIFY */
 
-export { default as TTAvatar } from '../titify/src/ui/uikit/components/TTAvatar/TTAvatar.vue'
+export { default as TTAvatar } from 'titify/src/ui/uikit/components/TTAvatar/TTAvatar.vue'
 
 
 
