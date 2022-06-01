@@ -13,7 +13,6 @@ import typescript from 'rollup-plugin-typescript2';
 import minimist from 'minimist';
 
 import scss from 'rollup-plugin-scss'
-import postcss from 'postcss'
 
 // Get browserslist config and remove ie from es build targets
 const esbrowserslist = fs.readFileSync('./.browserslistrc')
@@ -47,11 +46,9 @@ const baseConfig = {
       'process.env.NODE_ENV': JSON.stringify('production'),
     },
     scss:  scss({
-      processor: () => postcss([autoprefixer()]),
-      includePaths: [
-        path.join(__dirname, '../../src/')
-      ]
-    }),
+      output: '../src/styles/index.scss',
+    }
+    ),
     vue: {
       css: true,
       template: {

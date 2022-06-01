@@ -20,42 +20,25 @@
             "vue"
         ],
         "paths": {
-            "@/entry.esm": [
-              "src/entry.esm"
-            ],
-            "@/lib-components/*": [
-              "src/lib-components/*"
-            ],
-            "@/*": [
-              "titify/src/*"
-            ],
-            "@uikit/components/*": [
-                "titify/src/ui/uikit/components/*"
-              ],
-            "@uikit/themes/*": [
-                "titify/src/ui/uikit/themes/*"
-              ],
-            "@uikit/locales/*": [
-                "titify/src/ui/uikit/locales/*"
-              ],
-    
-            "@uikit/*": [
-                "titify/src/ui/uikit/*"
-              ],
-            "*": [
-              "types/*"
-            ],
-    
-            "@widgets/*": [
-              "titify/src/ui/widgets/*"
-            ],
-            "@views/*": [
-              "titify/src/ui/views/*"
-            ],
-            "@testing/*": [
-              "tests/*"
-            ]
-          },
+          "@/*": [
+            "src/*"
+          ],
+          "*": [
+            "types/*"
+          ],
+          "@uikit/*": [
+            "vendors/titify/src/ui/uikit/*"
+          ],
+          "@widgets/*": [
+            "vendors/titify/src/ui/widgets/*"
+          ],
+          "@views/*": [
+            "vendors/titify/src/ui/views/*"
+          ],
+          "@testing/*": [
+            "tests/*"
+          ]
+        },
         "plugins": [
             {
                 "transform":"@zerollup/ts-transform-paths",

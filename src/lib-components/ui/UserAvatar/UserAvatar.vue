@@ -10,7 +10,6 @@
 </template>
 <script>
 import Vue from 'vue';
-import { TTAvatar } from '../../';
 import { getImageUrl } from '../../../helpers/gogha/getImageUrl';
 
 export default Vue.extend({

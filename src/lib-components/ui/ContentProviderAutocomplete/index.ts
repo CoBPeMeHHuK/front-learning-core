@@ -1,3 +1,3 @@
-import ContentProviderAutocomplete from './ContentProviderAutocomplete.vue';
+import ContentProviderAutocomplete from './ProviderAutocomplete.vue';
 
 export default ContentProviderAutocomplete;

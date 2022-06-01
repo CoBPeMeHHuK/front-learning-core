@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts">
-import { TTAvatar } from '../../'
+import TTAvatar from '@uikit/components/TTAvatar/TTAvatar.vue'
 import Vue, { PropType } from 'vue';
 import { UUID } from '../../../domains/common';
 import { getImageUrl, ImageSize } from '../../../helpers/gogha';
