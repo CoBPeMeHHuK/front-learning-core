@@ -6,6 +6,7 @@ _Vue.use(VueCompositionAPI)
 // Import vue components
 import * as components from '@/lib-components/index';
 
+
 // install function executed by Vue.use()
 const install: PluginFunction<any> = function installTtUikit(Vue: typeof _Vue) {
   Object.entries(components).forEach(([componentName, component]) => {
@@ -21,4 +22,8 @@ export default install;
 export * from '@/lib-components/index';
 export * from '@/lib-components/DataList/composables'
 export * from './types/index';
+export * from './domains/common';
+export * from './domains/user';
+
+
 
