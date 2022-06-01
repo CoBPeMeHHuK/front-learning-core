@@ -22,8 +22,10 @@ export default install;
 export * from '@/lib-components/index';
 export * from '@/lib-components/DataList/composables'
 export * from './types/index';
-export * from './domains/common';
-export * from './domains/user';
+export * from './domains/index';
+export * from './utils/index';
+export * from './helpers/index';
+
 
 
 
