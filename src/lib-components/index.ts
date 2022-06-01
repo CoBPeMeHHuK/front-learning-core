@@ -12,7 +12,7 @@ export { default as DataListSorting } from './DataList/DataListSorting.vue'
 /** UI COMPONENTS */
 export { default as ContentProviderAutocomplete } from './ui/ContentProviderAutocomplete.vue'
 export { default as ProviderAvatar } from './ui/ProviderAvatar'
-export { default as UserAvatar } from './ui/UserAvatar'
+export { default as UserAvatar } from './ui/UserAvatar/UserAvatar.vue'
 
 /** TITIFY */
 
