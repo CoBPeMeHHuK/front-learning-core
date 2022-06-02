@@ -52,7 +52,7 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue';
-import { getImageUrl } from '@/helpers/gogha/getImageUrl';
+import { getImageUrl } from '../../helpers/gogha/getImageUrl';
 import { FilterCategory, FilterValue, IProvider } from '../../types';
 
 export default Vue.extend({
@@ -124,7 +124,6 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 @import '../../styles/tt.colors.scss';
-
 .category-aside-picker {
   .category-item {
     .v-chip.selected {

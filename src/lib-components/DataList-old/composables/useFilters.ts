@@ -1,5 +1,5 @@
 import {
-  reactive, computed,
+  readonly, reactive, computed,
 } from '@vue/composition-api';
 import { cloneDeep } from '../../../helpers';
 import { getFiltersEntries, setFiltersFromEntries as setFilters, setFilterValue } from '../../../utils';
@@ -15,14 +15,14 @@ const useFilters = ({ initialFilters }: UseFilterProps) => {
   const filterEntries = computed(() => getFiltersEntries(filters));
 
   const setFilter = (name: string, value: string | string[]) => {
-    const index = filters.findIndex((filter) => filter.name === name);
+    const index = filters.findIndex((filter: any) => filter.name === name);
     setFilterValue(filters[index], value);
   };
 
   const setFiltersFromEntries = (entries: Record<string, string | string[]>) => setFilters(filters, entries);
 
   return {
-    filters: filters as Filter[],
+    filters: readonly(filters) as Filter[],
     filterEntries,
     setFilter,
     setFiltersFromEntries,

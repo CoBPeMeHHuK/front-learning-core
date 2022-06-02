@@ -20,6 +20,11 @@ export interface BaseEntity {
     SINGLE = 'single',
     MULTIPLE = 'multiple',
   }
+
+  export enum FilterEntityProvidersType {
+    PLAIN = 'plain',
+    MY_COMPANY = 'my_company'
+  }
   
   interface BaseFilter {
     title?: string;
@@ -135,4 +140,123 @@ export interface BaseEntity {
     values: FilterValue[];
     isLoading: boolean;
   }
+
+  /****************************************************/
+
+  export interface BaseEntity {
+    id: string;
+  }
+  interface BaseFilter {
+    title?: string;
+    name: string;
+    type: FilterType;
+  }
+  
+  export interface FilterValue {
+    title: string;
+    value: string;
+  }
+  
+  export interface FilterRadio extends BaseFilter {
+    values: FilterValue[];
+    checkedValue: string;
+    defaultValue: string;
+  }
+  
+  export interface FilterCheckbox extends BaseFilter {
+    values: FilterValue[];
+    checkedValues: string[];
+    defaultValues: string[];
+  }
+  
+  export interface FilterCategory extends BaseFilter {
+    values: FilterValue[];
+    checkedValues: string[];
+    defaultValues: string[];
+  }
+  
+  export interface FilterAuthor extends BaseFilter {
+    mode: FilterSelectMode.MULTIPLE;
+    values: FilterValue[];
+    checkedValues: string[];
+    defaultValues: string[];
+  }
+  
+  interface BaseFilterSelect extends BaseFilter {
+    mode: FilterSelectMode;
+    componentType?: FilterEntityProvidersType
+  }
+  
+  export interface FilterSelectSingle extends BaseFilterSelect {
+    mode: FilterSelectMode.SINGLE;
+    checkedValue: string;
+    defaultValue: string;
+  }
+  
+  export interface FilterSelectMultiple extends BaseFilterSelect {
+    mode: FilterSelectMode.MULTIPLE;
+    checkedValues: string[];
+    defaultValues: string[];
+  }
+  
+  export interface FilterSelectWithoutSource extends FilterSelectMultiple {
+    values: FilterValue[];
+  }
+  
+  export interface FilterSelectSingleWithSource extends FilterSelectSingle {
+    provider: (search: string) => Promise<FilterValue[]>;
+  }
+  
+  export interface FilterSelectMultipleWithSource extends FilterSelectMultiple {
+    provider: (search: string) => Promise<FilterValue[]>;
+  }
+  
+  export interface FilterTagMultipleWithSource extends BaseFilter, IProvider {
+    mode: FilterSelectMode.MULTIPLE;
+    checkedValues: string[];
+    defaultValues: string[];
+    provider: () => Promise<FilterValue[]>;
+  }
+  
+  export interface FilterAuthorMultipleWithSource extends BaseFilter, IProvider {
+    mode: FilterSelectMode.MULTIPLE;
+    checkedValues: string[];
+    defaultValues: string[];
+    provider: (search: string) => Promise<FilterValue[]>;
+  }
+  
+  export interface FilterProviderMultipleWithSource extends BaseFilter, IProvider {
+    mode: FilterSelectMode.MULTIPLE;
+    checkedValues: string[];
+    defaultValues: string[];
+    provider: (search: string) => Promise<FilterValue[]>;
+  }
+  
+  // eslint-disable-next-line max-len,vue/max-len
+  
+  export interface IProvider {
+    provider: (...args: any) => Promise<FilterValue[]>
+  }
+  
+  
+  
+  export interface FetchProps<T extends BaseEntity> {
+    queryString: string | null;
+    filters?: Record<string, string | string[]>;
+    sorting?: Sorting<T>;
+    pagination?: Pick<Pagination, 'page' | 'limit'>;
+  }
+  
+  export interface Sorting<T> {
+    sortBy?: keyof T;
+    orderBy?: OrderDirection;
+  }
+  
+  export interface Pagination {
+    page: number;
+    limit: number;
+    total: number;
+  }
+  
+  
   

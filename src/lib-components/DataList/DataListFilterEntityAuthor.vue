@@ -42,7 +42,6 @@ import UserAvatar from '../ui/UserAvatar';
 import {
   FilterAuthor, FilterAuthorMultipleWithSource, FilterSelectMode, FilterValue, IProvider,
 } from '../../types';
-
 import { debounce } from '../../helpers';
 
 export default Vue.extend({

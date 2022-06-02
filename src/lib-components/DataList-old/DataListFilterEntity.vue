@@ -28,14 +28,12 @@ import { getFilterValue } from '../../utils';
 
 export default Vue.extend({
   name: 'DataListFilterEntity',
-
   props: {
     entity: {
       type: Object as PropType<Filter>,
       required: true,
     },
   },
-
   computed: {
     checked: {
       get() {
@@ -49,7 +47,6 @@ export default Vue.extend({
       return this.entity.name;
     },
   },
-
   methods: {
     getComponent({ type }: Filter) {
       switch (type) {

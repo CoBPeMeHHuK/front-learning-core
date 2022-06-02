@@ -1,49 +1,35 @@
 <template>
-  <div>
-    <TTAutocomplete
-      v-model="value"
-      :multiple="isMultiple"
-      :items="values"
-      :loading="isLoading"
-      placeholder="Начните вводить..."
-      :no-filter="true"
-      item-text="title"
-      item-value="value"
-      medium
-      :menu-props="menuProps"
-      :search-input.sync="searchInput"
-      :data-test-label="`“autocomplete-${filterName}`"
-    >
-      <template #item="{ item }">
-        <div :data-test="`list-${filterName}`">
-          {{ item.title }}
-        </div>
-      </template>
-    </TTAutocomplete>
-  </div>
+  <ContentProviderAutocomplete
+    v-model="value"
+    :providers="values"
+    :return-object="false"
+    small
+    :data-test-label="`autocomplete-${filterName} content-providers`"
+    @search="handleSearchString($event)"
+  />
 </template>
 
 <script lang="ts">
 import Vue, { PropType } from 'vue';
+import ContentProviderAutocomplete
+  from '../ui/ContentProviderAutocomplete/ProviderAutocomplete.vue';
 import {
-  debounce,
-} from '@/helpers';
-import {
-  FilterSelectMode, FilterSelectWithSource, FilterValue,
+  DataListFilterEntitySelectData,
+  FilterSelectMode,
+  FilterSelectMultipleWithSource,
+  FilterSelectWithSource, FilterValue,
 } from '../../types';
 import { isFilterSelectMultiple } from '../../utils';
-
-interface DataListFilterEntitySelectData {
-  searchInput: string;
-  values: FilterValue[];
-  isLoading: boolean;
-}
+import { debounce } from '../../helpers';
 
 export default Vue.extend({
-  name: 'DataListFilterEntitySelect',
+  name: 'DataListFilterEntityProviders',
+  components: {
+    ContentProviderAutocomplete,
+  },
   props: {
     entity: {
-      type: Object as PropType<FilterSelectWithSource>,
+      type: Object as PropType<FilterSelectMultipleWithSource>,
       required: true,
     },
   },
@@ -88,6 +74,7 @@ export default Vue.extend({
 
     value: {
       get() {
+        // @ts-ignore
         return isFilterSelectMultiple(this.entity) ? this.entity.checkedValues : [this.entity.checkedValue];
       },
       set(value: string[] = []) {
@@ -106,6 +93,10 @@ export default Vue.extend({
     this.debouncedFetch = debounce(this.fetch, 250);
   },
   methods: {
+    handleSearchString(search: string) {
+      this.searchInput = search;
+    },
+
     async fetch(search: string) {
       this.isLoading = true;
       let values: FilterValue[] = [];

@@ -27,17 +27,12 @@
 import Vue, { PropType } from 'vue';
 import {
   debounce,
-} from '@/helpers';
+} from '../../helpers';
 import {
+  DataListFilterEntitySelectData,
   FilterSelectMode, FilterSelectWithSource, FilterValue,
 } from '../../types';
 import { isFilterSelectMultiple } from '../../utils';
-
-interface DataListFilterEntitySelectData {
-  searchInput: string;
-  values: FilterValue[];
-  isLoading: boolean;
-}
 
 export default Vue.extend({
   name: 'DataListFilterEntitySelect',

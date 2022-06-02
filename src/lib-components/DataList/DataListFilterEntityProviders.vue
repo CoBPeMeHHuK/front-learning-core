@@ -1,31 +1,49 @@
 <template>
-  <ContentProviderAutocomplete
-    v-model="value"
-    :providers="values"
-    :return-object="false"
-    small
-    :data-test-label="`autocomplete-${filterName} content-providers`"
-    @search="handleSearchString($event)"
-  />
+  <div>
+    <ContentProviderAutocomplete
+      v-model="value"
+      :providers="values"
+      :return-object="false"
+      small
+      :data-test-label="`autocomplete-${filterName} content-providers`"
+      @search="handleSearchString($event)"
+    />
+    <DataListMyCompanyProviderFilter
+      v-if="isMyCompanyContentProvider"
+      v-model="value"
+      :items="values"
+    />
+  </div>
 </template>
 
 <script lang="ts">
-import Vue, { PropType } from 'vue';
 import ContentProviderAutocomplete
   from '../ui/ContentProviderAutocomplete/ProviderAutocomplete.vue';
+import { isFilterSelectMultiple } from '../../utils';
+import { debounce, isEqual } from '../../helpers';
+
+import Vue, { PropType } from 'vue';
 import {
-  DataListFilterEntitySelectData,
   FilterSelectMode,
+  FilterEntityProvidersType,
   FilterSelectMultipleWithSource,
   FilterSelectWithSource, FilterValue,
 } from '../../types';
-import { isFilterSelectMultiple } from '../../utils';
-import { debounce } from '../../helpers';
+
+import { DATA_LIST_MY_COMPANY_PROVIDER } from './MyCompanyProvider';
+import DataListMyCompanyProviderFilter from './MyCompanyProvider/DataListMyCompanyProviderFilter.vue';
+
+interface DataListFilterEntitySelectData {
+  searchInput: string;
+  values: FilterValue[];
+  isLoading: boolean;
+}
 
 export default Vue.extend({
   name: 'DataListFilterEntityProviders',
   components: {
     ContentProviderAutocomplete,
+    DataListMyCompanyProviderFilter,
   },
   props: {
     entity: {
@@ -71,6 +89,9 @@ export default Vue.extend({
         transition: false,
       };
     },
+    isMyCompanyContentProvider(): boolean {
+      return this.entity.componentType === FilterEntityProvidersType.MY_COMPANY;
+    },
 
     value: {
       get() {
@@ -78,7 +99,7 @@ export default Vue.extend({
         return isFilterSelectMultiple(this.entity) ? this.entity.checkedValues : [this.entity.checkedValue];
       },
       set(value: string[] = []) {
-        this.$emit('input', value ?? []);
+        this.$emit('input', this.formatProvidersByMyCompany(value) ?? []);
       },
     },
   },
@@ -95,6 +116,23 @@ export default Vue.extend({
   methods: {
     handleSearchString(search: string) {
       this.searchInput = search;
+    },
+
+    formatProvidersByMyCompany(newValue: string[]) {
+      if (!this.isMyCompanyContentProvider) return newValue;
+      const oldValue = this.value;
+
+      if (!isEqual(oldValue, newValue)) {
+        const isMyCompanyProviderWillChecked = newValue.includes(DATA_LIST_MY_COMPANY_PROVIDER.value);
+        const isMyCompanyProviderWasChecked = oldValue?.includes(DATA_LIST_MY_COMPANY_PROVIDER.value);
+        if (!isMyCompanyProviderWasChecked && isMyCompanyProviderWillChecked) {
+          return [DATA_LIST_MY_COMPANY_PROVIDER.value];
+        }
+        if (isMyCompanyProviderWasChecked && newValue.length > 1) {
+          return newValue.filter((val) => val !== DATA_LIST_MY_COMPANY_PROVIDER.value);
+        }
+      }
+      return newValue;
     },
 
     async fetch(search: string) {

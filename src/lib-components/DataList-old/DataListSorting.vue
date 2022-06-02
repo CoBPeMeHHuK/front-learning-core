@@ -14,7 +14,7 @@
 
 <script lang="ts">
 import { defineComponent, inject, PropType } from '@vue/composition-api';
-import { noop } from '@/helpers';
+import { noop } from '../../helpers';
 
 export default defineComponent({
   name: 'DataListSorting',

@@ -1,5 +1,5 @@
 import {
-  ref, computed
+  ref, computed,
 } from '@vue/composition-api';
 
 interface UsePagination {
