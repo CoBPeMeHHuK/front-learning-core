@@ -3,22 +3,11 @@ const path = require('path');
 const options = {
   transpileDependencies: ['vuetify', 'axios'],
 
-  css: {
-    loaderOptions: {
-      scss: {
-        additionalData: '@import "./src/styles/index.scss"',
-      },
-    },
-  },
-
   configureWebpack: {
     plugins: [],
     resolve: {
       alias: {
-        '@widgets': path.resolve(__dirname, 'titify/src/ui/widgets'),
-        '@uikit': path.resolve(__dirname, 'titify/src/ui/uikit'),
-        '@views': path.resolve(__dirname, 'titify/src/ui/views'),
-        '@testing': path.resolve(__dirname, 'tests'),
+
       },
     },
   },

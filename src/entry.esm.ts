@@ -20,9 +20,7 @@ export default install;
 // To allow individual component use, export components
 // each can be registered via Vue.component()
 export * from '@/lib-components/index';
-export * from '@/lib-components/DataList/composables'
-export * from '@/lib-components/DataList/DataList'
-export * from '@/lib-components/DataList/MyCompanyProvider'
+export * from '@/lib-components/DataList/index'
 export * from '@/types/index';
 export * from '@/domains/index';
 export * from '@/utils/index';
